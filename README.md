@@ -1,6 +1,6 @@
 # KostebekOyunu
 ## https://measses.github.io/KostebekOyunu/ :sunglasses:
->>>>>>> a9ddd35901e5713b05be15aa30b2cd7e7263a146
+
 
 #### Oyunda köstebeğe vurdukça puan kazanıyorsunuz, 3 can ile oyuna başlıyorsunuz ve her yılana değdiğiniz zaman canlarınız azalıyor. Son canınız da bittiğinde Oyun sonlanıyor.
 
