@@ -9,12 +9,15 @@ window.onload = function(){
 }
 
 function setGame(){
+    
     for (let i = 0; i < 9; i++){
+        
         let tile = document.createElement("div");
         tile.id = i.toString();
         tile.addEventListener("click", selectTile);
         document.getElementById("board").appendChild(tile);
     }
+    
     setInterval(setMole, 1000);
     setInterval(setPlant, 2000);
 }
