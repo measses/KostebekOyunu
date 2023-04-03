@@ -29,7 +29,7 @@ body{
     width: 100px;
     height: 100px;
 }
-#restart-btn{
+button{
     margin-bottom: 5px;
     font-size: 17px;
 }

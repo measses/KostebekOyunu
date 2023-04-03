@@ -81,4 +81,9 @@ function selectTile(){
             gameOver = true;
         }
     }
+    
+    // Oyun bittiğinde, yeniden başlatmak için setGame() fonksiyonunu çağırın
+    if (gameOver) {
+        setGame();
+    }
 }
