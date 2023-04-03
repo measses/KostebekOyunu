@@ -80,11 +80,12 @@ function selectTile(){
         if(canCount <= 0){
             document.getElementById("score").innerHTML = "GAME OVER: " + score.toString();
             gameOver = true;
+            setGame();
         }
     }
     
     // Oyun bittiğinde, yeniden başlatmak için setGame() fonksiyonunu çağırın
-    if (gameOver) {
+    /* if (gameOver) {
         setTimeout(function() {
             if(confirm("Tekrar oynamak ister misiniz?")){
                 score = 0;
@@ -95,5 +96,5 @@ function selectTile(){
                 setGame();
             }
         }, 1000);
-    }
+    } */
 }
