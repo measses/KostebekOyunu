@@ -1,8 +1,7 @@
 let currMoleTile;
 let currPlantTile;
 let score = 0;
-let lives = 3; // Yeni değişken
-let gameOver = false;
+let canCount = 3; // Başlangıçta üç can hakkı var.
 
 window.onload = function(){
     setGame();
@@ -24,31 +23,8 @@ function getRandomTile(){
     return num.toString();
 }
 
-document.getElementById("restart-btn").addEventListener("click", function() {
-    resetGame();
-});
-
-function resetGame() {
-    let board = document.getElementById("board");
-    while (board.firstChild) {
-        board.removeChild(board.firstChild);
-    }
-
-    score = 0;
-    lives = 3; // Yeni satır
-    gameOver = false;
-    document.getElementById("score").innerHTML = score.toString();
-
-    // Kalpleri yenile
-    document.getElementById("health1").src = "health.png";
-    document.getElementById("health2").src = "health.png";
-    document.getElementById("health3").src = "health.png";
-
-    setGame();
-}
-
 function setMole(){
-    if(gameOver){
+    if(canCount <= 0){
         return;
     }
 
@@ -68,7 +44,7 @@ function setMole(){
 }
 
 function setPlant(){
-    if(gameOver){
+    if(canCount <= 0){
         return;
     }
 
@@ -88,7 +64,7 @@ function setPlant(){
 }
 
 function selectTile(){
-    if(gameOver){
+    if(canCount <= 0){
         return;
     }
 
@@ -97,54 +73,12 @@ function selectTile(){
         document.getElementById("score").innerHTML = score.toString();
     }
     else if(this == currPlantTile){
-        lives--; // Canları azalt
-        if (lives == 0) {
+        canCount--; // Yanlış tıklama durumunda can sayısı azaltılır.
+        document.getElementById("can-count").innerHTML = canCount.toString(); // Can sayısını güncelle
+
+        if(canCount <= 0){
             document.getElementById("score").innerHTML = "GAME OVER: " + score.toString();
             gameOver = true;
-        } else {
-            // Kalpleri güncelle
-            let heartId = "health" + lives;
-            document.getElementById(heartId).src = "health-2.png";
         }
     }
-
-    // Kalan canlara göre kalp resimlerini güncelle
-    if (lives == 2) {
-        document.getElementById("health3").src = "health.png";
-    } else if (lives == 1) {
-        document.getElementById("health2").src = "health.png";
-    } else if (lives == 0) {
-        document.getElementById("health1").src = "health.png";
-    }
-    function hideHeart(){
-    if (lives == 2) {
-        document.getElementById("health3").src = "health.png";
-    } else if (lives == 1) {
-        document.getElementById("health2").src = "health.png";
-    } else if (lives == 0) {
-        document.getElementById("health1").src = "health.png";
-    }
 }
-
-function hideHeart(){
-    if (lives == 2) {
-        document.getElementById("health3").src = "health.png";
-    } else if (lives == 1) {
-        document.getElementById("health2").src = "health.png";
-    } else if (lives == 0) {
-        document.getElementById("health1").src = "health.png";
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-}
-
