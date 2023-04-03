@@ -2,6 +2,7 @@ let currMoleTile;
 let currPlantTile;
 let score = 0;
 let canCount = 3; // Başlangıçta üç can hakkı var.
+let gameOver = false;
 
 window.onload = function(){
     setGame();
@@ -84,6 +85,15 @@ function selectTile(){
     
     // Oyun bittiğinde, yeniden başlatmak için setGame() fonksiyonunu çağırın
     if (gameOver) {
-        setGame();
+        setTimeout(function() {
+            if(confirm("Tekrar oynamak ister misiniz?")){
+                score = 0;
+                canCount = 3;
+                gameOver = false;
+                document.getElementById("score").innerHTML = "0";
+                document.getElementById("can-count").innerHTML = "3";
+                setGame();
+            }
+        }, 1000);
     }
 }
