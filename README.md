@@ -1,7 +1,4 @@
 # KostebekOyunu
-<<<<<<< HEAD
-## https://measses.github.io/KostebekOyunu/
-=======
 ## https://measses.github.io/KostebekOyunu/ :sunglasses:
 >>>>>>> a9ddd35901e5713b05be15aa30b2cd7e7263a146
 
