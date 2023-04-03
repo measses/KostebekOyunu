@@ -2,7 +2,6 @@ let currMoleTile;
 let currPlantTile;
 let score = 0;
 let canCount = 3; // Başlangıçta üç can hakkı var.
-let gameOver = false;
 
 window.onload = function(){
     setGame();
@@ -64,6 +63,31 @@ function setPlant(){
     currPlantTile.appendChild(plant);
 }
 
+
+// Yeniden başlat düğmesine tıklandığında oyunu yeniden başlat
+document.getElementById("restart-btn").addEventListener("click", function() {
+    resetGame();
+});
+
+function resetGame() {
+    // Oyun tahtasını sıfırla
+    let board = document.getElementById("board");
+    while (board.firstChild) {
+        board.removeChild(board.firstChild);
+    }
+
+    // Skoru sıfırla ve gameOver değişkenini false olarak ayarla
+    score = 0;
+    gameOver = false;
+    document.getElementById("score").innerHTML = score.toString();
+
+    // Yeni oyun tahtasını oluştur
+    setGame();
+}
+
+
+
+
 function selectTile(){
     if(canCount <= 0){
         return;
@@ -80,21 +104,6 @@ function selectTile(){
         if(canCount <= 0){
             document.getElementById("score").innerHTML = "GAME OVER: " + score.toString();
             gameOver = true;
-            setGame();
         }
     }
-    
-    // Oyun bittiğinde, yeniden başlatmak için setGame() fonksiyonunu çağırın
-    /* if (gameOver) {
-        setTimeout(function() {
-            if(confirm("Tekrar oynamak ister misiniz?")){
-                score = 0;
-                canCount = 3;
-                gameOver = false;
-                document.getElementById("score").innerHTML = "0";
-                document.getElementById("can-count").innerHTML = "3";
-                setGame();
-            }
-        }, 1000);
-    } */
 }
